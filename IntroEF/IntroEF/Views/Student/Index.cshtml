@@ -1,0 +1,36 @@
+﻿@model IEnumerable<IntroEF.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["Msg"] != null)
+{
+    <p class="alert alert-success">@TempData["Msg"]</p>
+}
+
+<h1>Student List</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>CGPA</th>
+        <th>Departments</th>
+        <th>Gender</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Cgpa</td>
+            <td>Departments</td>
+            <td>@item.Gender</td>
+             
+             
+
+        <td><a href="/student/details/@item.Id">Details</a></td>
+        </tr>
+    }
+</table>
